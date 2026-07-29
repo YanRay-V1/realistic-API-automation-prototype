@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: Public_API_Smoke_Flow.RESTfulBookerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.085 s -- in Public_API_Smoke_Flow.RESTfulBookerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.92 s -- in Public_API_Smoke_Flow.RESTfulBookerTest
