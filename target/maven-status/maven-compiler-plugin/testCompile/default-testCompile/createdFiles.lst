@@ -1,0 +1,7 @@
+Public_API_Smoke_Flow\BookingPayload.class
+Public_API_Smoke_Flow\AuthSteps.class
+Public_API_Smoke_Flow\BookingDates.class
+Public_API_Smoke_Flow\BookingSteps.class
+Public_API_Smoke_Flow\GetBookingIdsStepsByName.class
+Public_API_Smoke_Flow\RESTfulBookerTest.class
+Public_API_Smoke_Flow\TokenPayload.class
