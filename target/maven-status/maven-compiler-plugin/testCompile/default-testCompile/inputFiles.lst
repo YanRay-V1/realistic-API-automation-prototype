@@ -1,7 +1,8 @@
-C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\AuthSteps.java
-C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\BookingDates.java
-C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\BookingPayload.java
-C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\BookingSteps.java
-C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\GetBookingIdsStepsByName.java
+C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\POJOs\BookingDates.java
+C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\POJOs\BookingPayload.java
+C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\POJOs\TokenPayload.java
+C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\RequestMethods\AuthSteps.java
+C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\RequestMethods\BookingSteps.java
+C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\RequestMethods\GetBookingIdsByNameSteps.java
+C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\RequestMethods\UpdateBookingSteps.java
 C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\RESTfulBookerTest.java
-C:\Users\rayya\realistic-API-automation-prototype\src\test\java\Public_API_Smoke_Flow\TokenPayload.java
