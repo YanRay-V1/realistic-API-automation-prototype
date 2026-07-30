@@ -4,10 +4,8 @@ package Public_API_Smoke_Flow;
 import Public_API_Smoke_Flow.POJOs.BookingPayload;
 import Public_API_Smoke_Flow.POJOs.TokenPayload;
 import Public_API_Smoke_Flow.RequestMethods.*;
-import groovyjarjarantlr4.runtime.Token;
 import io.restassured.response.Response;
 import net.serenitybdd.annotations.Steps;
-import net.serenitybdd.core.Serenity;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.*;
 import java.io.File;
@@ -22,7 +20,7 @@ import static org.hamcrest.Matchers.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ExtendWith(SerenityJUnit5Extension.class)
-public class RESTfulBookerTest {
+public class RestfulBookerTest {
 
     private static final ScenarioContext scenarioContext = new ScenarioContext();
     private ObjectMapper mapper;
@@ -94,7 +92,6 @@ public class RESTfulBookerTest {
         assertThat(response.jsonPath().getString("bookingdates.checkout"), equalTo(testpayload.getBookingdates().getCheckout()));
         assertThat(response.jsonPath().getString("additionalneeds"), equalTo(testpayload.getAdditionalneeds()));
     }
-
 
     @Steps
     UpdateBookingSteps updateBookingSteps = new UpdateBookingSteps(scenarioContext);
