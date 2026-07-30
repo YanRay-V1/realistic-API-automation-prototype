@@ -6,13 +6,14 @@
 2. Open Cloned Repo Using IntelliJ IDEA
 3. go to the left sidebar and click on maven
 4. click 'execute maven goal' button
-5a. choose 'clean' from the list followed by 'verify'
-5b. or type 'clean verify'
-'''bash
-mvn clean verify
-'''
+5. choose either:
+   - choose 'clean' from the list followed by 'verify'
+   - type 'clean verify'
 6. press Enter
 
+```bash
+mvn clean verify
+```
 
 ### Architecture
 realistic-API-automation-prototype/
