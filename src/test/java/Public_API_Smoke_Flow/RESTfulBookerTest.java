@@ -4,6 +4,7 @@ package Public_API_Smoke_Flow;
 import Public_API_Smoke_Flow.POJOs.BookingPayload;
 import Public_API_Smoke_Flow.POJOs.TokenPayload;
 import Public_API_Smoke_Flow.RequestMethods.*;
+import groovyjarjarantlr4.runtime.Token;
 import io.restassured.response.Response;
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.core.Serenity;
@@ -35,14 +36,11 @@ public class RESTfulBookerTest {
     @Steps
     GetBookingIdsByNameSteps getBookingIdsStepsByName = new GetBookingIdsByNameSteps();
 
-    @Steps
-    UpdateBookingSteps updateBookingSteps = new UpdateBookingSteps();
 
-    @Steps
-    DeleteBookingSteps deleteBookingSteps = new DeleteBookingSteps();
 
-    @Steps
-    GetBookingInfoSteps getBookingInfoSteps = new GetBookingInfoSteps();
+
+
+
 
     @BeforeAll
     static void setUp(){
@@ -61,12 +59,13 @@ public class RESTfulBookerTest {
 
     @Order(1)
     @Test
-    void authApiTest() throws IOException {
-        TokenPayload payload = mapper.readValue(new File("src/test/resources/payloads/auth-token-request.json"), TokenPayload.class);
+    void validAuthApiTest() throws IOException {
+        TokenPayload payload = mapper.readValue(new File("src/test/resources/payloads/valid-auth-token-request.json"), TokenPayload.class);
 
         Response response = authSteps.createToken(payload);
+        String authToken = response.jsonPath().getString("token");
+        scenarioContext.setToken(authToken);
         assertThat(response.statusCode(), equalTo(200));
-        scenarioContext.setToken(response.jsonPath().getString("token"));
     }
 
     @Order(2)
@@ -95,26 +94,32 @@ public class RESTfulBookerTest {
         assertThat(responseBody, containsString("" + scenarioContext.getBookingId() + ""));
     }
 
+    @Steps
+    UpdateBookingSteps updateBookingSteps = new UpdateBookingSteps(scenarioContext);
     @Order(4)
     @Test
     void updateBookingApiTest() throws IOException {
         BookingPayload payload = mapper.readValue(new File("src/test/resources/payloads/update-name-booking.json"), BookingPayload.class);
 
-        Response response = updateBookingSteps.updateBooking(payload, scenarioContext.getToken(), scenarioContext.getBookingId());
+        Response response = updateBookingSteps.updateBooking(payload);
         assertThat(response.statusCode(), equalTo(200));
     }
 
+    @Steps
+    GetBookingInfoSteps getBookingInfoSteps = new GetBookingInfoSteps(scenarioContext);
     @Order(5)
     @Test
     void getBookingInfoTest(){
-        Response response = getBookingInfoSteps.getBookingInfo(scenarioContext.getBookingId());
+        Response response = getBookingInfoSteps.getBookingInfo();
         assertThat(response.statusCode(), equalTo(200));
     }
 
+    @Steps
+    DeleteBookingSteps deleteBookingSteps = new DeleteBookingSteps(scenarioContext);
     @Order(6)
     @Test
     void deleteBookingApiTest(){
-        Response response = deleteBookingSteps.deleteBooking(scenarioContext.getToken(), scenarioContext.getBookingId());
+        Response response = deleteBookingSteps.deleteBooking();
         assertThat(response.statusCode(), equalTo(201));
     }
 }
