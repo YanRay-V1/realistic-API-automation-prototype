@@ -1,3 +1,0 @@
-stepName:
-  - action: getBookingInfo
-  - expectedStatus: 404

@@ -1,14 +1,41 @@
 flowName: Restful Booker Smoke Flow
 
 steps:
-  - action: createToken
+  - name: Create auth token
+    action: createToken
+    payloadFile: payloads/valid-auth-token-request.json
+    expectedStatus: 200
+    saveToContext:
+      token: token
 
-  - action: createBooking
+  - name: Create booking
+    action: createBooking
+    payloadFile: payloads/create-booking-1.json
+    expectedStatus: 200
+    assertions:
+      booking.firstname: James
+      booking.lastname: Brown
+    saveToContext:
+      bookingid: bookingId
 
-  - action: getBookingInfo
+  - name: Get booking info
+    action: getBookingInfo
+    expectedStatus: 200
+    assertions:
+      firstname: James
+      lastname: Brown
 
-  - action: updateBooking
+  - name: Update booking
+    action: updateBooking
+    payloadFile: payloads/update-name-booking.json
+    expectedStatus: 200
+    assertions:
+      lastname: Hustle
 
-  - action: deleteBooking
+  - name: Delete booking
+    action: deleteBooking
+    expectedStatus: 201
 
-  - action: getBookingInfo
+  - name: Get deleted booking info should 404
+    action: getBookingInfo
+    expectedStatus: 404

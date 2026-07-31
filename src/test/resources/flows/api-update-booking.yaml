@@ -1,6 +1,0 @@
-stepName:
-  - action: updateBooking
-  - payloadFile: payloads/update-name-booking.json
-  - expectedStatus: 200
-  - assertions:
-      lastname: Hustle

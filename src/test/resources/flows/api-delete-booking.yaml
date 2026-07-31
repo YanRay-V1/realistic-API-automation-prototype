@@ -1,3 +1,0 @@
-stepName:
-  - action: deleteBooking
-  - expectedStatus: 201

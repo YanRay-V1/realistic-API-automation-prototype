@@ -1,6 +1,0 @@
-stepName:
-  - action: getBookingInfo
-  - expectedStatus: 200
-  - assertions:
-      firstname: James
-      lastname: Brown
