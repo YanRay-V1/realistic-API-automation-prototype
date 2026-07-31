@@ -1,0 +1,9 @@
+stepName:
+  - action: createBooking
+  - payloadFile: payloads/create-booking-1.json
+  - expectedStatus: 200
+  - assertions:
+      booking.firstname: James
+      booking.lastname: Brown
+  - saveToContext:
+      bookingid: bookingId
