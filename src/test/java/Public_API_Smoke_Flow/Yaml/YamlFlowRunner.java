@@ -24,6 +24,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class YamlFlowRunner {
 
     private static final ObjectMapper YAML_MAPPER = new ObjectMapper(new YAMLFactory());
+    private static final ObjectMapper YAML_STEP_MAPPER = new ObjectMapper(new YAMLFactory());
     private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
 
     private static final ScenarioContext scenarioContext = new ScenarioContext();
@@ -36,15 +37,16 @@ public class YamlFlowRunner {
 
     @TestFactory
     List<DynamicTest> runBookingFlow() throws Exception {
-        return buildTestsFromYaml("src/test/resources/flows/booking-flow.yaml");
+        return buildTestsFromYaml("src/test/resources/flows/api-booking-flow.yaml");
     }
 
     private List<DynamicTest> buildTestsFromYaml(String yamlPath) throws Exception {
         YamlFlow flow = YAML_MAPPER.readValue(new File(yamlPath), YamlFlow.class);
         List<DynamicTest> tests = new ArrayList<>();
 
-        for (YamlStep step : flow.getSteps()) {
-            tests.add(DynamicTest.dynamicTest(step.getName(), () -> executeStep(step)));
+        for (String stepName : flow.getStepNames()) {
+            YamlStep step = YAML_STEP_MAPPER.readValue(new File("src/test/resources/flows/api-booking-flow-steps/"+stepName +".yaml"), YamlStep.class);
+            tests.add(DynamicTest.dynamicTest(stepName, () -> executeStep(step)));
         }
         return tests;
     }

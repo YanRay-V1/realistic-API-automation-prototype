@@ -1,0 +1,2 @@
+action: deleteBooking
+expectedStatus: 201

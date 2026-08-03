@@ -1,0 +1,5 @@
+action: createToken
+payloadFile: payloads/valid-auth-token-request.json
+expectedStatus: 200
+saveToContext:
+  token: token

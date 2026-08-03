@@ -5,15 +5,17 @@ import java.util.List;
 public class YamlFlow {
 
     private String flowName;
-    private List<YamlStep> steps;
 
-    public List<YamlStep> getSteps() {
-        return steps;
+    private List<String> stepNames;
+
+    public List<String> getStepNames() {
+        return stepNames;
     }
 
-    public void setSteps(List<YamlStep> steps) {
-        this.steps = steps;
+    public void setStepNames(List<String> stepNames) {
+        this.stepNames = stepNames;
     }
+
 
     public String getFlowName() {
         return flowName;
