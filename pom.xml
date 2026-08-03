@@ -83,6 +83,13 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.2</version>
+                <configuration>
+                    <includes>
+                        <include>
+                            **/YamlFlowRunner.java
+                        </include>
+                    </includes>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>

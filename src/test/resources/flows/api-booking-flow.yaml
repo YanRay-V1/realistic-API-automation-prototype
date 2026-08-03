@@ -11,4 +11,4 @@ stepNames:
 
   - Delete-booking
 
-
+  - Get-deleted-booking-info-should-404
