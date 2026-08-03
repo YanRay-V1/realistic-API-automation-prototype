@@ -478,22 +478,22 @@ const html = `<!DOCTYPE html>
   .controls button:hover { border-color: var(--accent); color: var(--accent); }
   .controls button.active { border-color: var(--accent); color: var(--accent); }
 
-  .layout { display: flex; align-items: flex-start; max-width: 1400px; margin: 0 auto; }
-
-  main { padding: 24px 32px; max-width: 1100px; flex: 1; min-width: 0; }
-
   .sidebar {
-    position: sticky;
+    position: fixed;
     top: 0;
-    align-self: flex-start;
+    left: 0;
     width: 280px;
-    flex-shrink: 0;
-    max-height: 100vh;
+    height: 100vh;
     overflow-y: auto;
     border-right: 1px solid var(--border);
     background: var(--panel);
     padding-bottom: 24px;
+    z-index: 20;
   }
+
+  .content-area { margin-left: 280px; }
+
+  main { padding: 24px 32px; max-width: 1100px; }
   .sidebar-header {
     display: flex;
     align-items: center;
@@ -569,6 +569,7 @@ const html = `<!DOCTYPE html>
 
   @media (max-width: 900px) {
     .sidebar { display: none; }
+    .content-area { margin-left: 0; }
   }
 
   .scenario {
@@ -713,27 +714,27 @@ const html = `<!DOCTYPE html>
 </style>
 </head>
 <body>
-  <header class="top">
-    <h1>API Test Report</h1>
-    <div class="subtitle">Generated ${summary.generatedAt.toLocaleString()}</div>
-    <div class="summary-bar">
-      <div class="summary-card"><div class="num">${summary.total}</div><div class="label">Scenarios</div></div>
-      <div class="summary-card pass"><div class="num">${summary.passed}</div><div class="label">Passed</div></div>
-      <div class="summary-card fail"><div class="num">${summary.failed}</div><div class="label">Failed</div></div>
-      <div class="summary-card"><div class="num">${summary.totalApiCalls}</div><div class="label">API Calls</div></div>
-    </div>
-    <div class="controls">
-      <input type="text" id="searchBox" placeholder="Search scenario title, URL, method..." />
-      <button data-filter="all" class="active">All</button>
-      <button data-filter="SUCCESS">Passed only</button>
-      <button data-filter="FAILURE">Failed only</button>
-      <button id="expandAll">Expand all</button>
-      <button id="collapseAll">Collapse all</button>
-    </div>
-  </header>
+  ${renderSidebar(scenarios)}
 
-  <div class="layout">
-    ${renderSidebar(scenarios)}
+  <div class="content-area">
+    <header class="top">
+      <h1>API Test Report</h1>
+      <div class="subtitle">Generated ${summary.generatedAt.toLocaleString()}</div>
+      <div class="summary-bar">
+        <div class="summary-card"><div class="num">${summary.total}</div><div class="label">Scenarios</div></div>
+        <div class="summary-card pass"><div class="num">${summary.passed}</div><div class="label">Passed</div></div>
+        <div class="summary-card fail"><div class="num">${summary.failed}</div><div class="label">Failed</div></div>
+        <div class="summary-card"><div class="num">${summary.totalApiCalls}</div><div class="label">API Calls</div></div>
+      </div>
+      <div class="controls">
+        <input type="text" id="searchBox" placeholder="Search scenario title, URL, method..." />
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="SUCCESS">Passed only</button>
+        <button data-filter="FAILURE">Failed only</button>
+        <button id="expandAll">Expand all</button>
+        <button id="collapseAll">Collapse all</button>
+      </div>
+    </header>
 
     <main id="scenarioContainer">
       ${scenarios.map((s, i) => renderScenario(s, i)).join("")}
