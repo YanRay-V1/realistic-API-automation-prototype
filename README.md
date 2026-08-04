@@ -11,14 +11,18 @@ Readme · MD
 5. choose either:
    - choose 'clean' from the list followed by 'verify'
    - type 'clean verify'
-6. press Enter
-7. click on the 'execute maven goal button and delete all text(including mvn).
-8. Type 'node scripts\generate_report.mjs'
-9. press Enter
-10. enter the provided directory where the serenity report would be found.
 ```bash
 mvn clean verify
 ```
+6. press Enter
+7. click on the 'execute maven goal button and delete all text(including mvn).
+8. Type 'node scripts\generate_report.mjs'
+  ```bash
+node scripts\generate_report.mjs
+```
+9. press Enter
+10. enter the provided directory where the serenity report would be found.
+
  
 ### Architecture
 ```
