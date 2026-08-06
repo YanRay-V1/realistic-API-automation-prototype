@@ -20,6 +20,8 @@ import static org.hamcrest.Matchers.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ExtendWith(SerenityJUnit5Extension.class)
+
+@Deprecated
 public class RestfulBookerTest {
 
     private static final ScenarioContext scenarioContext = new ScenarioContext();
