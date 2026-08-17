@@ -21,26 +21,26 @@ mvn clean verify
 realistic-API-automation-prototype/
 |
 └src/test/java/Public_API_Smoke_Flow/POJOs/
-└─────────────────────────────────────────BookingDates.java
-└─────────────────────────────────────────BookingPayload.java
-└─────────────────────────────────────────TokenPayload.java
+                                        |─BookingDates.java
+                                        |─BookingPayload.java
+                                        └─TokenPayload.java
 └-src/test/java/Public_API_Smoke_Flow/RequestMethods/
-└────────────────────────────────────────────────────AuthSteps.java
-└────────────────────────────────────────────────────BookingSteps.java
-└────────────────────────────────────────────────────DeleteBookingSteps.java
-└────────────────────────────────────────────────────GetBookingIds.java
-└────────────────────────────────────────────────────GetBookingInfoSteps.java
-└────────────────────────────────────────────────────UpdateBookingSteps.java
+                                                   |─AuthSteps.java
+                                                   |─BookingSteps.java
+                                                   |─DeleteBookingSteps.java
+                                                   |─GetBookingIds.java
+                                                   |─GetBookingInfoSteps.java
+                                                   └─UpdateBookingSteps.java
 └-src/test/java/Public_API_Smoke_Flow/
-└─────────────────────────────────────PlaceholderResolver.java
-└─────────────────────────────────────RestfulBookerTest.java
-└─────────────────────────────────────ScenarioContext.java
+                                    |─PlaceholderResolver.java
+                                    |─RestfulBookerTest.java
+                                    └─ScenarioContext.java
 └-src/test/resources/payloads/
-└─────────────────────────────create-booking.json
-└─────────────────────────────create-booking_1.json
-└─────────────────────────────update-checkout-booking.json
-└─────────────────────────────update-name-booking.json
-└─────────────────────────────valid-auth-token-request.json
+                            |─create-booking.json
+                            |─create-booking_1.json
+                            |─update-checkout-booking.json
+                            |─update-name-booking.json
+                            └─valid-auth-token-request.json
 ```
  
 - /test/java/Public_API_Smoke_Flow/POJOs: has Plain Old Java Objects that are used by the Jackson objecy mapper so when parsing a JSON file is done it has a blueprint of how a java object would look like.
